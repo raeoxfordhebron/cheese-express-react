@@ -11,6 +11,12 @@ router.get("/", async (req, res) => {
     res.json(cheeses)
 })
 
+// Update Route
+router.put("/", async (req, res) => {
+    const cheese = await Cheese.findByIdAndUpdate(req.params.id, req.body).catch(catcher(res))
+    res.json(cheese)
+})
+
 // Create Route
 router.post("/", async (req, res) => {
     const cheese = await Cheese.create(req.body).catch(catcher(res))
