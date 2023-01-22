@@ -11,6 +11,12 @@ router.get("/", async (req, res) => {
     res.json(cheeses)
 })
 
+// Delete Route
+router.delete("/", async (req, res) => {
+    const cheese = await Cheese.findByIdAndRemove(req.params.id).catch(catcher(res))
+    res.json(cheese)
+})
+
 // Update Route
 router.put("/", async (req, res) => {
     const cheese = await Cheese.findByIdAndUpdate(req.params.id, req.body).catch(catcher(res))
