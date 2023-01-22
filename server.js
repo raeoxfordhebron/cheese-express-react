@@ -2,6 +2,7 @@ import express from "express"
 import morgan from "morgan"
 import cors from "cors"
 import dotenv from "dotenv"
+import router from "./controllers/cheese"
 
 dotenv.config()
 
@@ -18,6 +19,8 @@ app.use(express.json())
 app.get("/", (req, res) => {
     res.json({message: "it works"})
 })
+
+app.use("/cheese", router)
 
 // Listener
 const PORT = process.env.PORT ?? 4444

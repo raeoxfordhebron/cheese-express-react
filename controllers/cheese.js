@@ -35,3 +35,5 @@ router.get("/", async (req, res) => {
     res.json(cheese)
 })
 
+export default router
+
